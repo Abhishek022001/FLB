@@ -1,0 +1,8 @@
+{
+  "url": "http://dev-rpc.cerboai.com",
+  "contract_address": "0xF872b3704980BC87e87E5EabDFfCf357CBC28C0F",
+  "admin_private_key": "0xb3fb07bbe4570033909abe7a21dd6f28446c52ccd0cfe2c1d6caad4fdaf8e2b3",
+  "admin_address": "0x50864136432D42C940971c6c4A5B9318638F6Bb0",
+  "user_private_key": "0x93a94ad51cde0f31bcd264491fbf1195573a74126a9d10c180d54a7af3bae58a",
+  "user_address": "0xA178d222D1a5B30900A3DFC404876cf8340048C9"
+}

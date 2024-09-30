@@ -6,7 +6,7 @@ This project aims to combine training large language models on mobile devices wi
 
 Using edge computing technology, users can leverage their device's computing power for efficient model training without relying on cloud services. This not only optimizes resource usage but also strengthens data privacy, ensuring users' information is secure. Our solution will drive the widespread adoption of mobile intelligence, meeting users' needs for personalization and real-time interaction.
 
-![demo.png](../FLB-Mobile/demo.png)
+![demo.png](../mobile/demo.png)
 
 
 ## Support LLM

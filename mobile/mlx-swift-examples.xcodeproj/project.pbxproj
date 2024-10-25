@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		1C55317A2C5AAB4E00B07ECD /* Gemma2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5531792C5AAB4E00B07ECD /* Gemma2.swift */; };
 		1CD79C702BD80DE100B6C06F /* Phi3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD79C6F2BD80DE100B6C06F /* Phi3.swift */; };
-		4E83B0B02CA6BCE6006508D3 /* main_pic5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E83B0AF2CA6BCE5006508D3 /* main_pic5.gif */; };
-		4E83B0B62CA6C9DA006508D3 /* main_pic2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E83B0B52CA6C9DA006508D3 /* main_pic2.gif */; };
+		4E83B0B82CAA5D5E006508D3 /* main_pic5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E83B0B72CAA5D5E006508D3 /* main_pic5.gif */; };
+		4E83B0BA2CAA798A006508D3 /* BackUp_V4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83B0B92CAA798A006508D3 /* BackUp_V4.swift */; };
+		4E83B0BC2CAA8FDC006508D3 /* BackUp_V5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83B0BB2CAA8FDC006508D3 /* BackUp_V5.swift */; };
 		525C1E9D2B9A011000B5C356 /* Starcoder2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525C1E9C2B9A010F00B5C356 /* Starcoder2.swift */; };
 		52A776182B94B5EE00AA6E80 /* Qwen2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A776172B94B5EE00AA6E80 /* Qwen2.swift */; };
 		7BBD0D6E2BE044A10019C5D7 /* OpenELM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD0D6D2BE044A10019C5D7 /* OpenELM.swift */; };
@@ -174,8 +175,9 @@
 /* Begin PBXFileReference section */
 		1C5531792C5AAB4E00B07ECD /* Gemma2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gemma2.swift; sourceTree = "<group>"; };
 		1CD79C6F2BD80DE100B6C06F /* Phi3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phi3.swift; sourceTree = "<group>"; };
-		4E83B0AF2CA6BCE5006508D3 /* main_pic5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = main_pic5.gif; path = ../../../main_pic5.gif; sourceTree = "<group>"; };
-		4E83B0B52CA6C9DA006508D3 /* main_pic2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = main_pic2.gif; path = ../../../main_pic2.gif; sourceTree = "<group>"; };
+		4E83B0B72CAA5D5E006508D3 /* main_pic5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = main_pic5.gif; sourceTree = "<group>"; };
+		4E83B0B92CAA798A006508D3 /* BackUp_V4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUp_V4.swift; sourceTree = "<group>"; };
+		4E83B0BB2CAA8FDC006508D3 /* BackUp_V5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUp_V5.swift; sourceTree = "<group>"; };
 		525C1E9C2B9A010F00B5C356 /* Starcoder2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Starcoder2.swift; sourceTree = "<group>"; };
 		52A776172B94B5EE00AA6E80 /* Qwen2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Qwen2.swift; sourceTree = "<group>"; };
 		7BBD0D6D2BE044A10019C5D7 /* OpenELM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenELM.swift; sourceTree = "<group>"; };
@@ -321,12 +323,13 @@
 			children = (
 				C3056BAD2BCD97B700A31D04 /* LoRATrainingExampleApp.swift */,
 				C3056BAF2BCD97B700A31D04 /* ContentView.swift */,
-				4E83B0AF2CA6BCE5006508D3 /* main_pic5.gif */,
-				4E83B0B52CA6C9DA006508D3 /* main_pic2.gif */,
+				4E83B0B92CAA798A006508D3 /* BackUp_V4.swift */,
+				4E83B0B72CAA5D5E006508D3 /* main_pic5.gif */,
 				C3056BB12BCD97B800A31D04 /* Assets.xcassets */,
 				C3056BB32BCD97B800A31D04 /* LoRATrainingExample.entitlements */,
 				C3056BB42BCD97B800A31D04 /* Preview Content */,
 				C3056BC42BCDAB8600A31D04 /* README.md */,
+				4E83B0BB2CAA8FDC006508D3 /* BackUp_V5.swift */,
 			);
 			path = FLB;
 			sourceTree = "<group>";
@@ -684,12 +687,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E83B0B62CA6C9DA006508D3 /* main_pic2.gif in Resources */,
 				C3056BBA2BCD981900A31D04 /* train.jsonl in Resources */,
 				C3056BBB2BCD981900A31D04 /* test.jsonl in Resources */,
 				C3056BBC2BCD981900A31D04 /* valid.jsonl in Resources */,
+				4E83B0B82CAA5D5E006508D3 /* main_pic5.gif in Resources */,
 				C3056BB62BCD97B800A31D04 /* Preview Assets.xcassets in Resources */,
-				4E83B0B02CA6BCE6006508D3 /* main_pic5.gif in Resources */,
 				C3056BB22BCD97B800A31D04 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -718,6 +720,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3056BB02BCD97B700A31D04 /* ContentView.swift in Sources */,
+				4E83B0BA2CAA798A006508D3 /* BackUp_V4.swift in Sources */,
+				4E83B0BC2CAA8FDC006508D3 /* BackUp_V5.swift in Sources */,
 				C3056BAE2BCD97B700A31D04 /* LoRATrainingExampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

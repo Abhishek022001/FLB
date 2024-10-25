@@ -323,6 +323,7 @@ public enum LoRATrain {
     public typealias LoraLossFunction = (Module, MLXArray, MLXArray, MLXArray) -> (
         MLXArray, MLXArray
     )
+    
 
     /// LoRA training parameters
     public struct Parameters: Sendable {
@@ -347,6 +348,12 @@ public enum LoRATrain {
         /// save path for the adapter `.safetensors`
         public var adapterURL: URL?
 
+        public var current_trainingLoss: Double = 0.0
+//        public var currentMemoryUsage: Double = 0.0
+        
+        
+       
+        
         public init(
             batchSize: Int = 4, iterations: Int = 1000, stepsPerReport: Int = 10,
             stepsPerEval: Int = 100, validationBatches: Int = 10, saveEvery: Int = 100,
@@ -520,6 +527,8 @@ public enum LoRATrain {
                 "Iteration \(iteration + 1): training loss \(trainingLoss.formatted()), "
                     + "iterations/sec \(iterationsPerSecond.formatted()), "
                     + "Tokens/sec \(tokensPerSecond.formatted())"
+                
+ 
             case .validation(let iteration, let validationLoss, let validationTime):
                 "Iteration \(iteration + 1): "
                     + "validation loss \(validationLoss.formatted()), "
@@ -563,6 +572,9 @@ public enum LoRATrain {
 
         var start = Date.timeIntervalSinceReferenceDate
 
+        
+        
+        
         for (iteration, (inputs, targets, lengths)) in LoRABatchIterator(
             dataset: train, tokenizer: tokenizer, batchSize: parameters.batchSize, train: true
         ).enumerated() {
@@ -578,7 +590,16 @@ public enum LoRATrain {
             // record loss
             losses.append(lvalue.item(Float.self))
             tokenCount += tokens.item(Int.self)
-
+//
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // report training loss
             if (iteration + 1) % parameters.stepsPerReport == 0 {
                 let trainingLoss = MLXArray(losses).mean(stream: .cpu).item(Float.self)
@@ -586,6 +607,9 @@ public enum LoRATrain {
 
                 let iterationsPerSecond = Double(parameters.stepsPerReport) / (now - start)
                 let tokensPerSecond = Double(tokenCount) / (now - start)
+                
+                // 保存 trainingLoss 到文件
+                saveTrainingLossToFile(trainingLoss)
 
                 if progress(
                     .train(
@@ -600,6 +624,16 @@ public enum LoRATrain {
                 tokenCount = 0
                 start = Date.timeIntervalSinceReferenceDate
             }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 
             // report validation loss
             if iteration == 0 || (iteration + 1) % parameters.stepsPerEval == 0 {
@@ -635,5 +669,48 @@ public enum LoRATrain {
                 break
             }
         }
+    }
+}
+
+
+
+
+
+
+
+
+
+func saveTrainingLossToFile(_ trainingLoss: Float) {
+    let fileManager = FileManager.default
+    if let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+        let flbDirectory = documentsDirectory.appendingPathComponent("Applications/FLB")
+
+        do {
+            if !fileManager.fileExists(atPath: flbDirectory.path) {
+                try fileManager.createDirectory(at: flbDirectory, withIntermediateDirectories: true, attributes: nil)
+                print("FLB directory created.")
+            }
+
+            let fileURL = flbDirectory.appendingPathComponent("training_loss.txt")
+            let logEntry = "\(Date()): \(trainingLoss)\n"
+            
+//            print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
+//            print(fileURL)
+
+            if !fileManager.fileExists(atPath: fileURL.path) {
+                try logEntry.write(to: fileURL, atomically: true, encoding: .utf8)
+            } else {
+                let fileHandle = try FileHandle(forUpdating: fileURL)
+                fileHandle.seekToEndOfFile()
+                if let data = logEntry.data(using: .utf8) {
+                    fileHandle.write(data)
+                }
+                fileHandle.closeFile()
+            }
+        } catch {
+            print("Error writing to file: \(error)")
+        }
+    } else {
+        print("Documents directory not found.")
     }
 }

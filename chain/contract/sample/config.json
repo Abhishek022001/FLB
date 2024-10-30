@@ -1,6 +1,0 @@
-{
-  "rpc": "http://dev-rpc.cerboai.com",
-  "rpc-l": "http://127.0.0.1:8545",
-  "contractAddress": "0xfF45Ac560476aEd6F7794f0e835b61d95e5d1C21",
-  "privateKey": "f78a036930ce63791ea6ea20072986d8c3f16a6811f6a2583b0787c45086f769"
-}

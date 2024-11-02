@@ -74,7 +74,17 @@ private class Attention: Module {
                     scale: ropeScale))
         }
     }
-
+    /// Executes the main function with the given parameters.
+    ///
+    /// This function processes the input `x` of type `MLXArray` with optional parameters
+    /// `mask` and `cache`, applying transformations to produce an `MLXArray` output.
+    ///
+    /// - Parameters:
+    ///   - x: The primary input data for processing, of type `MLXArray`.
+    ///   - mask: An optional mask to modify the input, or `nil` if no mask is applied.
+    ///   - cache: A `KVCache` instance for caching purposes, or `nil` to disable caching.
+    ///
+    /// - Returns: An `MLXArray` containing the processed results.
     public func callAsFunction(_ x: MLXArray, mask: MLXArray? = nil, cache: KVCache?) -> MLXArray {
         let (B, L) = (x.dim(0), x.dim(1))
 
@@ -140,7 +150,17 @@ private class TransformerBlock: Module {
         self._postAttentionLayerNorm.wrappedValue = RMSNorm(
             dimensions: args.hiddenSize, eps: args.rmsNormEps)
     }
-
+    /// Executes the main function with the given parameters.
+    ///
+    /// This function processes the input `x` of type `MLXArray` with optional parameters
+    /// `mask` and `cache`, applying transformations to produce an `MLXArray` output.
+    ///
+    /// - Parameters:
+    ///   - x: The primary input data for processing, of type `MLXArray`.
+    ///   - mask: An optional mask to modify the input, or `nil` if no mask is applied.
+    ///   - cache: A `KVCache` instance for caching purposes, or `nil` to disable caching.
+    ///
+    /// - Returns: An `MLXArray` containing the processed results.
     public func callAsFunction(_ x: MLXArray, mask: MLXArray? = nil, cache: KVCache?) -> MLXArray {
         var r = attention(inputLayerNorm(x), mask: mask, cache: cache)
         let h = x + r
